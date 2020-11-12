@@ -1,7 +1,9 @@
 package com.mama1emon.simpleinventorymanagmentapi.services;
 
+import com.mama1emon.simpleinventorymanagmentapi.dto.ProductDTO;
 import com.mama1emon.simpleinventorymanagmentapi.models.Product;
 import com.mama1emon.simpleinventorymanagmentapi.repositories.ProductRepository;
+import com.mama1emon.simpleinventorymanagmentapi.util.ProductConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +26,11 @@ public class ProductHandlerService {
         return products;
     }
 
-    public void saveProduct(Product product){
-        productRepository.save(product);
+    public void saveProduct(ProductDTO productDTO){
+        productRepository.save(ProductConverter.convert(productDTO));
+    }
+
+    public void deleteProduct(Product product){
+        productRepository.delete(product);
     }
 }
