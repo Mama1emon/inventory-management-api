@@ -1,5 +1,6 @@
 package com.mama1emon.simpleinventorymanagmentapi.models;
 
+import com.google.gson.annotations.Expose;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -27,12 +28,26 @@ public class Product {
             }
     )
     private Long id;
+    @Expose
     @Column(name = "name")
     private String name;
+    @Expose
     @Column(name = "brand")
     private String brand;
+    @Expose
     @Column(name = "price")
     private Long price;
+    @Expose
     @Column(name = "quantity")
     private Long quantity;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

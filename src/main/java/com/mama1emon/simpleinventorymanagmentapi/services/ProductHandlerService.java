@@ -5,6 +5,7 @@ import com.mama1emon.simpleinventorymanagmentapi.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -12,8 +13,15 @@ public class ProductHandlerService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Product findProductByNameAndBrand(String name, String brand){
-        return productRepository.findProductByNameAndBrand(name, brand);
+    public List<Product> findProductByNameAndBrand(String name, String brand){
+        List<Product> products = new ArrayList<>();
+        if(name == null && brand == null)   return null;
+        if(name == null)    return productRepository.findProductsByBrand(brand);
+        if(brand == null)   return productRepository.findProductsByName(name);
+        // Проверка на пустой массив
+        if((products = productRepository.findProductsByNameAndBrand(name, brand)).isEmpty())
+            return null;
+        return products;
     }
 
     public void saveProduct(Product product){

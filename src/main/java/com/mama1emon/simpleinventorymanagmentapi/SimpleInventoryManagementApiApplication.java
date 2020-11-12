@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SimpleInventoryManagmentApiApplication {
+public class SimpleInventoryManagementApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SimpleInventoryManagmentApiApplication.class, args);
+        SpringApplication.run(SimpleInventoryManagementApiApplication.class, args);
     }
 
 }
