@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 
+/*
+ * Для нового продукта все поля обязательны для заполнения
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter

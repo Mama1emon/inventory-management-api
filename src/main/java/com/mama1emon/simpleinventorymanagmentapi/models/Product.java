@@ -6,11 +6,13 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "products")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Getter
 @Setter
 @Builder
@@ -36,18 +38,10 @@ public class Product {
     private String brand;
     @Expose
     @Column(name = "price")
+    @Min(1)
     private Long price;
     @Expose
     @Column(name = "quantity")
+    @Min(1)
     private Long quantity;
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", brand='" + brand + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                '}';
-    }
 }

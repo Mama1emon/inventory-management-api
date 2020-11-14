@@ -33,4 +33,8 @@ public class ProductHandlerService {
     public void deleteProduct(Product product){
         productRepository.delete(product);
     }
+
+    public List<Product> findProductLeftovers(){
+        return productRepository.findProductByQuantityLessThan(5L);
+    }
 }
